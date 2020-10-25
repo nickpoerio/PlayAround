@@ -10,18 +10,17 @@ import argparse
 
 
 def main(arguments):
-
+    print('Init')
     if arguments.game == "TicTacToe_cli":
-        import TicTacToe_cli
-        game = TicTacToe_cli.Game()
+        from TicTacToe_cli.Game import Game
+        game = Game(arguments.nplayers)
+        game.play()
 
-        # print("Game {} initialized".format(arguments.game))
-        # print("Number of players: {}".format(arguments.nplayers))
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='PlayAround argument parser')
-    parser.add_argument('--game', type=str, help='Insert game name', default='TicTaCToe_cli')
+    parser.add_argument('--game', type=str, help='Insert game name', default='TicTacToe_cli')
     parser.add_argument('--nplayers', type=int, help='number of players: 0-2', default=2)
     args = parser.parse_args()
     main(args)

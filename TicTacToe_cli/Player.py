@@ -16,8 +16,9 @@ class Player():
     def play(self, free_cells):
         while 1:
             move = input('Player {} next move (1-9):'.format(self.symbol))
-            if move in free_cells.keys():
+            if move in free_cells:
                 self.my_cells.append(move)
-                free_cells.pop(move, None)
                 break
-        return free_cells
+            else:
+                print('Invalid entry')
+        return move
